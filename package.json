@@ -1,0 +1,45 @@
+{
+  "name": "hackerscribe",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "foreman": "^2.0.0",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "electron": "^1.4.14",
+    "electron-installer-dmg": "^0.1.2",
+    "electron-packager": "^8.7.0",
+    "electron-rebuild": "^1.5.11",
+    "electron-reload": "^1.1.0",
+    "electron-winstaller": "^2.4.1",
+    "eslint": "^4.8.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "homepage": "./",
+  "main": "src/electron-main.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start -p 3000",
+    "dev:mac": "DEV=true electron .",
+    "dev:win": "SET DEV=true&& electron .",
+    "package-mac":
+      "rm -rf release-builds && npm run build && electron-packager . --overwrite --asar=true --platform=darwin --arch=x64 --icon=public/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win":
+      "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=public/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "package-linux":
+      "electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=public/icons/png/1024x1024.png --prune=true --out=release-builds"
+  }
+}
